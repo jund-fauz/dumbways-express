@@ -4,9 +4,10 @@ const app = express()
 
 app.set('view engine', 'hbs')
 app.set('views', './src/views')
+app.use('/assets', express.static('src/assets'))
 
 app.get('/', (req, res) => {
-    res.render('index')
+    res.render('index', { title: 'Express JS w/ Handlebars' })
 })
 
 app.listen(3000, () => {
